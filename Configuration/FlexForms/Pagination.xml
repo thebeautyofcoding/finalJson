@@ -1,0 +1,28 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Pagination Settings</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                 
+                    <settings.limit>
+                        <TCEforms>
+                           <label>Entries per page</label>
+                            <config>
+                               <type>input</type>
+                                
+                            </config>
+                        </TCEforms>
+                    </settings.limit>
+
+                   
+
+
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

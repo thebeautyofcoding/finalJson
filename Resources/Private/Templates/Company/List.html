@@ -1,0 +1,195 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+ 
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+<div class="d-flex flex-column  justify-content-center">
+<f:section name="content" >
+       
+        <f:form.hidden name="uri_hiddenUpdateCompany" class="uri_hiddenUpdateCompany" value="<f:uri.action
+                    additionalParams='{type:99}'
+                    controller='AjaxCompany' action ='ajaxUpdate' />" />
+   <f:form.hidden name="uri_hiddenDeleteCompanies" class="uri_hiddenDeleteCompanies" value="<f:uri.action
+                    additionalParams='{type:99}'
+                    controller='AjaxCompany' action ='ajaxDelete' />" />
+    
+    <div class="d-flex flex-column justify-content-center align-items-center table">
+    <h1 class="mb-3">Firmen</h1>
+    <div class="d-flex justify-content-start">
+        <h4 class="d-flex mr-3 ">Bitte Anzahl der Einträge pro Seite auswählen:</h4>
+    <div class="mr-3"><f:render partial="Company/PageLimit" arguments="{limits:data.pageLimit, defaultLimit:data.defaultLimit, currentLimit:data.currentLimit}"/></div></div>
+    <f:render partial="Search/SearchCompany"/>
+    <f:flashMessages />
+
+
+    <div   id="table"class="mb-3">
+    <table id="myTable" class="tx_heiner table table-striped container" >
+       
+            <tr id="trHeader">
+            <th  scope="col"><f:translate key="tx_heiner_domain_model_company.name" /></th>
+            <th  scope="col"><f:translate key="tx_heiner_domain_model_company.unterzeile" /></th>
+            <th  scope="col"><f:translate key="tx_heiner_domain_model_company.strasse" /></th>
+            <th  scope="col"><f:translate key="tx_heiner_domain_model_company.plz" /></th>
+            <th  scope="col"><f:translate key="tx_heiner_domain_model_company.ort" /></th>
+            <th  scope="col"><f:translate key="tx_heiner_domain_model_company.telefon" /></th>
+            <th  scope="col"><f:translate key="tx_heiner_domain_model_company.fax" /></th>
+            <th  scope="col"><f:translate key="tx_heiner_domain_model_company.web" /></th>
+            <f:if condition="{data.loggedInUser.ses_id}">
+                    <f:then>
+                        <th scope="col">Editieren </th>
+                <th scope="col">Zum Löschen markieren </th>
+                    </f:then>
+                    <f:else>
+
+                    </f:else>
+                </f:if>
+            
+        </tr>
+        
+        <f:for each="{data.companies}" as="company">
+
+        
+            <tr class="tr">
+
+          
+                            <td><f:form.textfield class="form-control companyProperty" id="name" value="{company.name}"disabled="true"></f:form.textfield></td>
+                            <td><f:form.textfield class="form-control companyProperty"id="unterzeile" value="{company.unterzeile}"disabled="true"></f:form.textfield></td>
+                            <td><f:form.textfield class="form-control companyProperty" id="strasse" value="{company.strasse}"disabled="true"></f:form.textfield></td>
+                            <td><f:form.textfield class="form-control companyProperty"id="plz" value="{company.plz}"disabled="true"></f:form.textfield></td>
+                            <td><f:form.textfield class="form-control companyProperty" id="ort" value="{company.ort}"disabled="true"></f:form.textfield></td>
+                            <td><f:form.textfield class="form-control companyProperty" id="telefon" value="{company.telefon}"disabled="true"></f:form.textfield></td>
+                            <td><f:form.textfield class="form-control companyProperty" id="fax" value="{company.fax}"disabled="true"></f:form.textfield></td>
+                            <td><f:form.textfield class="form-control companyProperty" id="web" value="{company.web}"disabled="true"></f:form.textfield></td>
+              
+               
+                <f:if condition="{data.loggedInUser.ses_id}">
+                    <f:then>
+                        <td>
+                                 
+                                        <f:form.button class="btn btn-primary editButtonCompany" type="button">
+                                     
+                                        Updaten</f:form.button>
+
+
+                                                    <f:form.hidden name="uri_hiddenCompanyUid" class="uri_hiddenCompanyUid"
+                                                        value="{company.uid}" />
+                                               
+
+                                    </td>
+                        <td><f:form.checkbox class="companiesToDeleteCheckbox" name="companiesToDelete" property="uid" value="{company.uid}" multiple="1" /></td>
+                    </f:then>
+                    <f:else>
+
+                    </f:else>
+                </f:if>
+            </tr>
+        </f:for>
+ 
+    </table>
+    <div class="d-flex justify-content-center align-items-center mb-2" id="NewAndDeleteButtonContainer">
+    <f:link.action action="new" class="">New Company</f:link.action>
+    <button class="btn btn-danger ml-2" id="deleteCompanies"type="submit">Löschen</button>
+</div>
+</div>
+
+     <div class="d-flex justify-content-center mb-5" id="paginationContainer">
+       
+        <nav aria-label="Page navigation example"></nav>
+        <f:if condition="{data.currentPage}==1">
+            <f:then>
+                     <ul class="pagination ">
+                <li class="page-item disabled">
+                    <f:form.button
+                    id="previousButtonCompany"
+                        class="page-link "
+                       value="{data.previousPage}"
+                        >Previous</f:form.button
+                    >
+                </li>
+            </f:then>
+            <f:else>
+                <ul class="pagination">
+                    <li class="page-item ">
+                        <f:form.button
+                        id="previousButtonCompany"
+                        value="{data.previousPage}"
+                            class="page-link"
+                            >Previous</f:form.button
+                        >
+                    </li>
+            </f:else>
+        </f:if>
+        
+       
+                
+               
+                <f:for each="{data.pages}" as="page">
+              
+                    <f:if condition="{page}=={data.currentPage}">
+                        <f:then>
+                            <li class="page-item disabled">
+                                <f:form.button
+                                id="pageButton{page}"
+                                    class="page-link companyPageButton"
+                                value="{page}"
+                                    >{page}</f:form.button
+                                >
+                            </li>
+                        </f:then>
+                        <f:else>
+                            
+                            <li class="page-item">
+                                <f:form.button
+                              value="{page}"
+                                id="pageButton{page}"
+                                    class="page-link companyPageButton"
+                                    >{page}</f:form.button>
+                            </li>
+                        </f:else>
+                    </f:if>
+                </f:for>
+
+
+
+                <f:if condition="{data.currentPage}=={data.totalPages}">
+            <f:then>
+                              <li class="page-item disabled">
+                    <f:form.button
+                        value="{data.nextPage}"
+                        id="nextButtonCompany"
+                        class="page-link"
+                        >Next
+                        </f:form.button>
+                </li>
+            </f:then>
+            <f:else>
+                                 
+                       <li class="page-item">
+                    <f:form.button
+                        value="{data.nextPage}"
+                        id="nextButtonCompany"
+                        class="page-link">
+                        Next
+                    </f:form.button>
+                </li>
+            </f:else>
+        </f:if>
+       
+        </ul>
+        </nav>
+        
+    
+ 
+ </div>
+
+    </f:section>
+
+</html>

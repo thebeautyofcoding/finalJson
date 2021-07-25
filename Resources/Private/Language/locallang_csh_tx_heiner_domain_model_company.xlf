@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:heiner/Resources/Private/Language/locallang_csh" date="2021-06-14T14:52:32Z" product-name="heiner">
+		<header/>
+		<body>
+			<trans-unit id="name.description" resname="name.description">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="unterzeile.description" resname="unterzeile.description">
+				<source>unterzeile</source>
+			</trans-unit>
+			<trans-unit id="strasse.description" resname="strasse.description">
+				<source>strasse</source>
+			</trans-unit>
+			<trans-unit id="plz.description" resname="plz.description">
+				<source>plz</source>
+			</trans-unit>
+			<trans-unit id="ort.description" resname="ort.description">
+				<source>ort</source>
+			</trans-unit>
+			<trans-unit id="telefon.description" resname="telefon.description">
+				<source>telefon</source>
+			</trans-unit>
+			<trans-unit id="fax.description" resname="fax.description">
+				<source>fax</source>
+			</trans-unit>
+			<trans-unit id="web.description" resname="web.description">
+				<source>web</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

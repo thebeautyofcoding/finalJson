@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:heiner/Resources/Private/Language/locallang_db" date="2021-06-14T14:52:32Z" product-name="heiner">
+		<header/>
+		<body>
+			<trans-unit id="tx_heiner_domain_model_person" resname="tx_heiner_domain_model_person">
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_person.anrede" resname="tx_heiner_domain_model_person.anrede">
+				<source>Anrede</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_person.vorname" resname="tx_heiner_domain_model_person.vorname">
+				<source>Vorname</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_person.nachname" resname="tx_heiner_domain_model_person.nachname">
+				<source>Nachname</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_person.email" resname="tx_heiner_domain_model_person.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_person.telefon" resname="tx_heiner_domain_model_person.telefon">
+				<source>Telefon</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_person.handy" resname="tx_heiner_domain_model_person.handy">
+				<source>Handy</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_person.firma" resname="tx_heiner_domain_model_person.firma">
+				<source>Firma</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_company" resname="tx_heiner_domain_model_company">
+				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_company.name" resname="tx_heiner_domain_model_company.name">
+				<source>Firmenname</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_company.unterzeile" resname="tx_heiner_domain_model_company.unterzeile">
+				<source>Unterzeile</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_company.strasse" resname="tx_heiner_domain_model_company.strasse">
+				<source>Strasse</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_company.plz" resname="tx_heiner_domain_model_company.plz">
+				<source>Plz</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_company.ort" resname="tx_heiner_domain_model_company.ort">
+				<source>Ort</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_company.telefon" resname="tx_heiner_domain_model_company.telefon">
+				<source>Telefon</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_company.fax" resname="tx_heiner_domain_model_company.fax">
+				<source>Fax</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_domain_model_company.web" resname="tx_heiner_domain_model_company.web">
+				<source>Web</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_persons.name" resname="tx_heiner_persons.name">
+				<source>Persons</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_persons.description" resname="tx_heiner_persons.description">
+				<source>shows person entries in table</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_companies.name" resname="tx_heiner_companies.name">
+				<source>Companies</source>
+			</trans-unit>
+			<trans-unit id="tx_heiner_companies.description" resname="tx_heiner_companies.description">
+				<source>shows company entries in table</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

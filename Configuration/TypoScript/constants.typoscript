@@ -1,0 +1,40 @@
+
+plugin.tx_heiner_persons {
+    view {
+        # cat=plugin.tx_heiner_persons/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:heiner/Resources/Private/Templates/
+        # cat=plugin.tx_heiner_persons/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:heiner/Resources/Private/Partials/
+        # cat=plugin.tx_heiner_persons/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:heiner/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_heiner_persons//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}
+
+plugin.tx_heiner_companies {
+    view {
+        # cat=plugin.tx_heiner_companies/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:heiner/Resources/Private/Templates/
+        # cat=plugin.tx_heiner_companies/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:heiner/Resources/Private/Partials/
+        # cat=plugin.tx_heiner_companies/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:heiner/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_heiner_companies//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}
+plugin {
+ tx_felogin_pi1 {
+    view {
+      # cat=Frontend Login/02_Template/102; type=string; label= Path to template root (FE)
+      templateRootPath = EXT:heiner/Resources/Private/Templates/FeLogin/
+
+
+    }
+  }
+}

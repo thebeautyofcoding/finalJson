@@ -1,0 +1,38 @@
+<html
+  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  data-namespace-typo3-fluid="true"
+>
+  <f:layout name="Default" />
+
+  This template displays a NEW form for the current domain object. If you modify
+  this template, do not forget to change the overwrite settings in
+  /Configuration/ExtensionBuilder/settings.yaml: Resources: Private: Templates:
+  New.html: keep Otherwise your changes will be overwritten the next time you
+  save the extension in the extension builder
+
+  <f:section name="content">
+    <div class="content">
+      <h1>New Company</h1>
+
+      <f:flashMessages />
+
+      <f:render partial="FormErrors" />
+
+      <f:form
+        action="create"
+        id="newCompany"
+        name="newCompany"
+        object="{newCompany}"
+      >
+        <f:render partial="Company/FormFields" />
+        <div class="d-flex justify-content-center">
+          <f:form.submit
+            id="submitCompany"
+            value="Create new"
+            class="btn btn-primary"
+          />
+        </div>
+      </f:form>
+    </div>
+  </f:section>
+</html>

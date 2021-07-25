@@ -1,0 +1,239 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+<div class="d-flex flex-column  justify-content-center">
+    <f:section name="content">
+        <f:form.hidden name="uri_hiddenUpdatedCompanyName" class="uri_hiddenUpdatedCompanyName" value="" />
+
+   <f:form.hidden name="uri_hiddenDelete" class="uri_hiddenDelete" value="<f:uri.action
+                    additionalParams='{type:100}'
+                    controller='AjaxPerson' action ='ajaxDelete' />" />
+        <div class="d-flex flex-column justify-content-center align-items-center table">
+            <h1 class="mb-3">Personen</h1>
+            <div class="d-flex justify-content-start">
+                <h4 class="d-flex mr-3 ">Bitte Anzahl der Einträge pro Seite auswählen:</h4>
+                <div class="mr-3">
+                    <f:render partial="Person/PageLimit"
+                        arguments="{limits:data.pageLimit, defaultLimit:data.defaultLimit, currentLimit:data.currentLimit}" />
+                </div>
+            </div>
+            <f:render partial="Search/Search" />
+            <f:flashMessages />
+
+            <f:form.hidden name="uri_hiddenAllCompanies" class="uri_hiddenAllCompanies" value="<f:uri.action
+            additionalParams='{type:100}'
+            controller='AjaxPerson' action ='getAllCompanies' />" />
+            <div id="table" class="mb-3">
+                <table id="myTable" class="tx_heiner table table-striped container">
+                    <tr id='trHeader'>
+                        <th scope="col">
+                            <f:translate key="tx_heiner_domain_model_person.anrede" />
+                        </th>
+                        <th scope="col">
+                            <f:translate key="tx_heiner_domain_model_person.vorname" />
+                        </th>
+                        <th scope="col">
+                            <f:translate key="tx_heiner_domain_model_person.nachname" />
+                        </th>
+                        <th scope="col">
+                            <f:translate key="tx_heiner_domain_model_person.email" />
+                        </th>
+                        <th scope="col">
+                            <f:translate key="tx_heiner_domain_model_person.telefon" />
+                        </th>
+                        <th scope="col">
+                            <f:translate key="tx_heiner_domain_model_person.handy" />
+                        </th>
+                        <th scope="col">
+                            <f:translate key="tx_heiner_domain_model_person.firma" />
+                        </th>
+
+
+                        <f:if condition="{data.loggedInUser.ses_id}">
+                            <f:then>
+                                <th scope="col">Editieren </th>
+                                <th scope="col">Zum Löschen markieren </th>
+                            </f:then>
+                            <f:else>
+
+                            </f:else>
+                        </f:if>
+
+                    </tr>
+
+                    <f:for each="{data.persons}" as="person">
+
+
+
+                        <tr class="tr">
+                            <td><f:form.textfield class="form-control personProperty" id="anrede" value="{person.anrede}" disabled="true"></f:form.textfield></td>
+                            <td><f:form.textfield class="form-control personProperty" id="vorname" value="{person.vorname}"disabled="true"></f:form.textfield></td>
+                            <td><f:form.textfield class="form-control personProperty"id="nachname" value="{person.nachname}"disabled="true"></f:form.textfield></td>
+                            <td><f:form.textfield class="form-control personProperty" id="email" value="{person.email}"disabled="true"></f:form.textfield></td>
+                            <td><f:form.textfield class="form-control personProperty"id="telefon" value="{person.telefon}"disabled="true"></f:form.textfield></td>
+                            <td><f:form.textfield class="form-control personProperty" id="handy" value="{person.handy}"disabled="true"></f:form.textfield></td>
+
+                            <td>
+                                <f:link.action action="show" class="firma" arguments="{person : person}">{person.firma.name}
+                                </f:link.action>
+                                <div id="selectCompany"></div>
+                            </td>
+                            <f:if condition="{data.loggedInUser.ses_id}">
+                                <f:then>
+                                    <td>
+                                 
+                                        <f:form.button class="btn btn-primary editButton" type="button">
+                                     
+                                        Updaten</f:form.button>
+
+
+                                                    <f:form.hidden name="uri_hiddenPersonUid" class="uri_hiddenPersonUid"
+                                                        value="{person.uid}" />
+                                               
+
+                                    </td>
+                                    <td>
+                                        <f:form.checkbox class="personsToDeleteCheckbox" name="personsToDelete"
+                                            property="uid" value="{person.uid}" multiple="1" />
+                                    </td>
+                                </f:then>
+                                <f:else>
+
+                                </f:else>
+                            </f:if>
+                        </tr>
+                    </f:for>
+                    <f:form.hidden name="uri_hiddenUpdate" class="uri_hiddenUpdate" value="<f:uri.action
+                    additionalParams='{type:100}'
+                    controller='AjaxPerson' action ='ajaxUpdate' />" />
+
+                 
+                </table>
+                <div class="d-flex justify-content-center align-items-center " id="NewAndDeleteButtonContainer">
+                    <f:link.action action="new" class="">New Person</f:link.action>
+                    <button class="btn btn-danger ml-2" id="deletePersons" type="submit">Löschen</button>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center mb-5" id="paginationContainer">
+
+            
+                <f:if condition="{data.currentPage}==1">
+                    <f:then>
+                        <ul class="pagination ">
+                            <li class="page-item disabled">
+                                <f:form.button id="previousButton" class="page-link" value="{data.previousPage}">
+                                    Previous</f:form.button>
+                            </li>
+                    </f:then>
+                    <f:else>
+                        <ul class="pagination">
+                            <li class="page-item ">
+                                <f:form.button id="previousButton" value="{data.previousPage}" class="page-link">
+                                    Previous</f:form.button>
+                            </li>
+                    </f:else>
+                </f:if>
+
+
+
+
+                <f:for each="{data.pages}" as="page">
+
+                    <f:if condition="{page}=={data.currentPage}">
+                        <f:then>
+                            <li class="page-item disabled">
+                                <f:form.button id="pageButton{page}" class="page-link personPageButton" value="{page}">
+                                    {page}</f:form.button>
+                            </li>
+                        </f:then>
+                        <f:else>
+
+                            <li class="page-item">
+                                <f:form.button value="{page}" id="pageButton{page}" class="page-link personPageButton">
+                                    {page}</f:form.button>
+                            </li>
+                        </f:else>
+                    </f:if>
+                </f:for>
+
+
+
+                <f:if condition="{data.currentPage}=={data.totalPages}">
+                    <f:then>
+                        <li class="page-item disabled">
+                            <f:form.button value="{data.nextPage}" id="nextButton" class="page-link">Next
+                            </f:form.button>
+                        </li>
+                    </f:then>
+                    <f:else>
+
+                        <li class="page-item">
+                            <f:form.button value="{data.nextPage}" id="nextButton" class="page-link">Next
+                            </f:form.button>
+                        </li>
+                    </f:else>
+                </f:if>
+
+                </ul>
+                </nav>
+
+
+
+            </div>
+            <script id="templateMustache" type="x-tmpl-mustache">
+
+    {{#persons}}
+
+
+        <tr>
+
+                <td>
+
+                   {{person.anrede}}
+
+                
+                     
+                </td>
+                <td>
+
+                   {{person.vorname}}
+
+                
+                     
+                </td>
+                <td>
+
+                   {{nachname}}
+
+                
+                     
+                </td>
+                <td>
+
+                   {{email}}
+
+                
+                     
+                </td>
+      
+
+        </tr>
+
+{{/persons}}
+    
+</script>
+
+    </f:section>
+
+</html>

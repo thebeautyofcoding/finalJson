@@ -1,0 +1,61 @@
+body {
+	height: 100%;
+
+}
+
+.content {
+	position: relative;
+	margin-bottom: 200px;
+
+}
+
+.footer {
+
+
+	color: darkgrey;
+	height: 100px;
+
+	
+	position:fixed;
+	bottom:0;
+	width: 100%;
+	background-color: #f8f9fa !important;
+
+
+}
+
+.table {
+	margin-top: 100px;
+}
+
+.search {
+	max-width: 500px;
+	display: flex;
+	justify-content: center;
+}
+
+
+.selectMenu {
+	width: 250px;
+}
+
+
+
+
+.LevelOne{
+	background:#f8f9fa!important;
+
+}
+
+.mb-5{
+	margin-bottom:150px!important;
+}
+
+#deletePersons{
+	display:none;
+}
+
+#deleteCompanies{
+	display:none;
+}
+

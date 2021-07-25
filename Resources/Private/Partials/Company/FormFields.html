@@ -1,0 +1,80 @@
+<html
+  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  data-namespace-typo3-fluid="true"
+>
+  <div class="d-flex flex-column justify-content-center container">
+    <label class="form-label" for="name">
+      <f:translate key="tx_heiner_domain_model_company.name" />
+      <span class="required">(required)</span> </label
+    ><br />
+    <f:form.textfield
+      class="form-control"
+      property="name"
+      value="{company.name}"
+    /><br />
+    <label class="form-label" for="unterzeile">
+      <f:translate key="tx_heiner_domain_model_company.unterzeile" />
+      <span class="required">(required)</span> </label
+    ><br />
+    <f:form.textfield
+      class="form-control"
+      property="unterzeile"
+      value="{company.unterzeile}"
+    /><br />
+    <label class="form-label" for="strasse">
+      <f:translate key="tx_heiner_domain_model_company.strasse" />
+      <span class="required">(required)</span> </label
+    ><br />
+    <f:form.textfield
+      class="form-control"
+      property="strasse"
+      value="{company.strasse}"
+    /><br />
+    <label class="form-label" for="plz">
+      <f:translate key="tx_heiner_domain_model_company.plz" />
+      <span class="required">(required)</span> </label
+    ><br />
+    <f:form.textfield
+      class="form-control"
+      property="plz"
+      value="{company.plz}"
+    /><br />
+    <label class="form-label" for="ort">
+      <f:translate key="tx_heiner_domain_model_company.ort" />
+      <span class="required">(required)</span> </label
+    ><br />
+    <f:form.textfield
+      class="form-control"
+      property="ort"
+      value="{company.ort}"
+    /><br />
+    <label class="form-label" for="telefon">
+      <f:translate key="tx_heiner_domain_model_company.telefon" />
+      <span class="required">(required)</span> </label
+    ><br />
+    <f:form.textfield
+      class="form-control"
+      property="telefon"
+      value="{company.telefon}"
+    /><br />
+    <label class="form-label" for="fax">
+      <f:translate key="tx_heiner_domain_model_company.fax" />
+      <span class="required">(required)</span> </label
+    ><br />
+    <f:form.textfield
+      class="form-control"
+      property="fax"
+      value="{company.fax}"
+    /><br />
+    <label class="form-label" for="web">
+      <f:translate key="tx_heiner_domain_model_company.web" />
+      <span class="required">(required)</span> </label
+    ><br />
+    <f:form.textfield
+      class="form-control"
+      property="web"
+      value="{company.web}"
+    /><br />
+  </div>
+  <f:debug>{data}</f:debug>
+</html>

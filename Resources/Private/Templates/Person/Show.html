@@ -1,0 +1,84 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This Template is responsible for displaying a single view for a domain object
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+Show.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+  <div class="d-flex flex-column justify-content-center align-items-center table">
+    <h1>Folgende Personen sind bei der Firma "{persons.0.firma.name}" angestellt:</h1>
+
+    <f:flashMessages />
+    <table class="table table-striped container">
+      <tr>
+        <th>
+          <f:translate key="tx_heiner_domain_model_person.anrede" />
+        </th>
+        <th>
+          <f:translate key="tx_heiner_domain_model_person.vorname" />
+        </th>
+        <th>
+          <f:translate key="tx_heiner_domain_model_person.nachname" />
+        </th>
+        <th>
+          <f:translate key="tx_heiner_domain_model_company.name" />
+        </th>
+
+        <th>
+          <f:translate key="tx_heiner_domain_model_company.strasse" />
+        </th>
+        <th>
+          <f:translate key="tx_heiner_domain_model_company.plz" />
+        </th>
+        <th>
+          <f:translate key="tx_heiner_domain_model_company.ort" />
+        </th>
+        <th>
+          <f:translate key="tx_heiner_domain_model_company.telefon" />
+        </th>
+        <th>
+          <f:translate key="tx_heiner_domain_model_company.fax" />
+        </th>
+
+        <th>
+          <f:translate key="tx_heiner_domain_model_company.web" />
+        </th>
+
+
+        <!-- <th> </th>
+          <th> </th> -->
+      </tr>
+      <f:debug>{persons}</f:debug>
+      <f:for each="{persons}" as="person">
+
+        <tr>
+          <td>{person.anrede}</td>
+          <td>{person.vorname}</td>
+          <td>{person.nachname}</td>
+          <td>{person.firma.name}</td>
+          <td>{person.firma.strasse}</td>
+          <td>{person.firma.plz}</td>
+          <td>{person.firma.ort}</td>
+          <td>{person.firma.telefon}</td>
+          <td>{person.firma.fax}</td>
+          <td>{person.firma.web}</td>
+
+
+        </tr>
+      </f:for>
+    </table>
+    <div class="d-flex justify-content-center">
+      <f:link.action action="list">Back to list</f:link.action>
+    </div><br />
+  </div>
+</f:section>
+
+</html>

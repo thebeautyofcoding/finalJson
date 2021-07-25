@@ -1,0 +1,45 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="d-flex flex-column justify-content-center container">
+<label class="form-label" for="anrede">
+	<f:translate key="tx_heiner_domain_model_person.anrede" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textfield property="anrede" class="form-control" value="{data.person.anrede}"/><br />
+<label class="form-label" for="vorname">
+	<f:translate key="tx_heiner_domain_model_person.vorname" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textfield property="vorname" class="form-control" value="{data.person.vorname}"/><br />
+<label class="form-label" for="nachname">
+	<f:translate key="tx_heiner_domain_model_person.nachname" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textfield property="nachname" class="form-control" value="{data.person.nachname}"/><br />
+<label class="form-label" for="email">
+	<f:translate key="tx_heiner_domain_model_person.email" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textfield property="email" class="form-control" value="{data.person.email}"/><br />
+<label class="form-label" for="telefon">
+	<f:translate key="tx_heiner_domain_model_person.telefon" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textfield property="telefon" class="form-control" value="{data.person.telefon}"/><br />
+<label class="form-label" for="handy">
+	<f:translate key="tx_heiner_domain_model_person.handy" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textfield property="handy" value="{data.person.handy}"class="form-control"/><br />
+</label><br />
+<label class="form-label" for="firma">
+	<f:translate key="tx_heiner_domain_model_person.firma" /> <span class="required">(required)</span>
+</label><br />
+
+<f:if condition="{companies} ">
+	
+	<f:form.select property="firma" id="select" options="{companies}" optionValueField="uid" optionLabelField="name" class="form-control" prependOptionValue=""  prependOptionLabel="Bitte eine Firma auswählen!"/>
+	
+</f:if>
+<f:if condition="{data.allCompanies}">
+
+	<f:form.select  property="firma"   options="{data.allCompanies}" optionValueField="uid" optionLabelField="name" class="form-control"/>
+</f:if>
+
+</div>
+
+
+</html>

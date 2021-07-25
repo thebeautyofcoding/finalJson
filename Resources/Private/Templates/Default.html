@@ -1,0 +1,12 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:render partial="Header/Default" arguments="{mainNavigation:mainNavigation}"/>
+    
+<div class="d-flex flex-column">
+ 
+    <div class="container">
+       <f:format.raw>{content0}</f:format.raw> 
+    </div>
+    <f:security.ifAuthenticated>
+<f:render partial="Footer/Default"/></f:security.ifAuthenticated>
+</div>
+</html>

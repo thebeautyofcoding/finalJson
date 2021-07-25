@@ -1,0 +1,32 @@
+<table  class="tx_heiner" >
+	<tr>
+		<th><f:translate key="tx_heiner_domain_model_person.anrede" /></th>
+		<th><f:translate key="tx_heiner_domain_model_person.vorname" /></th>
+		<th><f:translate key="tx_heiner_domain_model_person.nachname" /></th>
+		<th><f:translate key="tx_heiner_domain_model_company.name" /></th>
+		<th><f:translate key="tx_heiner_domain_model_company.unterzeile" /></th>
+		<th><f:translate key="tx_heiner_domain_model_company.strasse" /></th>
+		<th><f:translate key="tx_heiner_domain_model_company.plz" /></th>
+		<th><f:translate key="tx_heiner_domain_model_company.ort" /></th>
+		<th><f:translate key="tx_heiner_domain_model_company.telefon" /></th>
+		<th><f:translate key="tx_heiner_domain_model_company.fax" /></th>
+		<th><f:translate key="tx_heiner_domain_model_company.web" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+	
+	<f:for each="{personsCompanies}" as="personsCompany">
+		<tr>
+			<td>{personsCompany.anrede}</td>
+			<td>{personsCompany.vorname}</td>
+			<td><f:link.action action="show" arguments="{person : person}">{person.nachname}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{person : person}">{person.email}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{person : person}">{person.telefon}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{person : person}">{person.handy}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{person : person}">{person.firma}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{person : person}">{person.firmaid}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{person : person}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{person : person}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
